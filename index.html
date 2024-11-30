@@ -3,20 +3,336 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Learning Git and GitHub</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fb;
+        color: #333;
+        line-height: 1.7;
+        padding-top: 50px;
+      }
+
+      header {
+        background-color: #1f3a66;
+        color: white;
+        text-align: center;
+        padding: 2.5rem 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+      }
+
+      header p {
+        font-size: 1.3rem;
+      }
+
+      nav {
+        background-color: #1a2a3a;
+        padding: 1rem;
+        position: fixed;
+        top: 90px;
+        width: 100%;
+        z-index: 999;
+        text-align: center;
+      }
+
+      nav a {
+        color: #fff;
+        margin: 0 1.5rem;
+        font-size: 1.2rem;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        color: #ffbc00;
+        text-decoration: underline;
+      }
+
+      .container {
+        margin-top: 180px;
+        padding: 2rem 10%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        color: #1f3a66;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid #1f3a66;
+        padding-bottom: 0.5rem;
+      }
+
+      .content-section {
+        margin-bottom: 3rem;
+      }
+
+      .table-of-contents {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 2rem;
+      }
+
+      .table-of-contents li {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .table-of-contents a {
+        color: #1f3a66;
+        text-decoration: none;
+      }
+
+      .table-of-contents a:hover {
+        text-decoration: underline;
+        color: #ffbc00;
+      }
+
+      pre {
+        background-color: #1f3a66;
+        color: #f1f1f1;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+      }
+
+      code {
+        background-color: #f1f1f1;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        color: #1f3a66;
+      }
+
+      ol,
+      ul {
+        margin-left: 2rem;
+      }
+
+      .card {
+        background-color: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        transform: translateY(10px);
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-in-out forwards;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #1f3a66;
+      }
+
+      .button {
+        background-color: #1f3a66;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        display: inline-block;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #ffbc00;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background-color: #1f3a66;
+        color: white;
+        margin-top: 3rem;
+      }
+
+      footer a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 2rem;
+        }
+
+        header h1 {
+          font-size: 2.5rem;
+        }
+
+        nav a {
+          font-size: 1rem;
+          margin: 0 1rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta excepturi,
-      aut, exercitationem iusto aperiam ipsum quisquam minima quis ut ab
-      molestiae voluptate repellendus. Qui ipsum molestiae provident, facilis
-      nisi, aut, ea voluptates excepturi consequuntur nam molestias! Expedita
-      magnam, quis, iure odio incidunt quia fugiat quae sunt unde commodi optio,
-      beatae a? Ea autem voluptas corporis quae eveniet esse laudantium vero
-      nemo veniam veritatis facilis officia consequuntur, nam odio, quia sint
-      hic harum consequatur possimus. Quisquam autem, aliquam debitis est
-      dolorem blanditiis perspiciatis eum, a, totam rem eius ipsam omnis sunt.
-      Commodi corrupti eligendi culpa ut totam excepturi id explicabo tenetur?
-    </h1>
+    <header>
+      <h1>Learning Git and GitHub</h1>
+      <p>
+        Your journey to mastering Git version control and GitHub collaboration
+      </p>
+    </header>
+
+    <nav>
+      <a href="#introduction">Introduction</a>
+      <a href="#setup-and-installation">Setup</a>
+      <a href="#git-basics">Git Basics</a>
+      <a href="#github-basics">GitHub Basics</a>
+      <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="container">
+      <div id="introduction" class="content-section card">
+        <h3>Introduction</h3>
+        <p>
+          Git is a distributed version control system that allows multiple
+          developers to collaborate on a project without overwriting each
+          other’s work. GitHub is a platform built around Git that enables users
+          to host and share code, track issues, and collaborate on open-source
+          projects.
+        </p>
+      </div>
+
+      <div id="setup-and-installation" class="content-section card">
+        <h3>Setup and Installation</h3>
+        <h4>Prerequisites</h4>
+        <ul>
+          <li>
+            Install
+            <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+          </li>
+          <li>
+            Create a
+            <a href="https://github.com/" target="_blank">GitHub</a> account
+          </li>
+        </ul>
+        <h4>Clone this Repository</h4>
+        <pre><code>git clone https://github.com/your-username/learning-git-and-github.git</code></pre>
+        <p>Replace <code>your-username</code> with your GitHub username.</p>
+        <h4>Navigate into the Project Directory</h4>
+        <pre><code>cd learning-git-and-github</code></pre>
+      </div>
+
+      <div id="git-basics" class="content-section card">
+        <h3>Git Basics</h3>
+        <h4>Cloning a Repository</h4>
+        <pre><code>git clone &lt;repository-url&gt;</code></pre>
+
+        <h4>Creating and Switching Branches</h4>
+        <pre><code>git checkout -b &lt;branch-name&gt;</code></pre>
+        <pre><code>git checkout &lt;branch-name&gt;</code></pre>
+
+        <h4>Committing Changes</h4>
+        <pre><code>git add &lt;file-name&gt;</code></pre>
+        <pre><code>git commit -m "Commit message"</code></pre>
+
+        <h4>Pushing Changes</h4>
+        <pre><code>git push origin &lt;branch-name&gt;</code></pre>
+      </div>
+
+      <div id="github-basics" class="content-section card">
+        <h3>GitHub Basics</h3>
+        <h4>Creating a GitHub Repository</h4>
+        <ul>
+          <li>Go to <a href="https://github.com" target="_blank">GitHub</a></li>
+          <li>Click the "New" button to create a new repository</li>
+          <li>Follow the prompts to name and configure your repository</li>
+        </ul>
+
+        <h4>Forking and Pull Requests</h4>
+        <p>
+          Fork a repository to make your own copy, make changes, and submit a
+          pull request to propose those changes.
+        </p>
+      </div>
+
+      <div id="resources" class="content-section card">
+        <h3>Additional Resources</h3>
+        <ul>
+          <li>
+            <a href="https://git-scm.com/doc" target="_blank"
+              >Git Documentation</a
+            >
+          </li>
+          <li>
+            <a href="https://docs.github.com/en/github" target="_blank"
+              >GitHub Docs</a
+            >
+          </li>
+          <li>
+            <a href="https://git-scm.com/book/en/v2" target="_blank"
+              >Pro Git Book (Free Online)</a
+            >
+          </li>
+        </ul>
+        <a
+          href="https://github.com/raghavpershad/learning-git-and-github"
+          class="button"
+          >Visit the GitHub Repository</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <p>Created with ❤️ by Raghav Pershad</p>
+      <p>
+        <a href="https://github.com/raghavpershad" target="_blank"
+          >GitHub Profile</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
